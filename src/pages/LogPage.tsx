@@ -13,12 +13,14 @@ function LogPage() {
   const [list, setList] = useState<LogEntryArray>([]);
 
   return (
-    
-    <ul>
-        {list.map((item) => (
-            <li key={item.id}>{item.text}</li>
-        ))}
-    </ul>
+    <div className='bordered-list'>
+        <ul>
+            {list.map((item) => (
+                <li key={item.id}>{item.text}</li>
+            ))}
+        </ul>
+        <p>Test</p>
+    </div>
   );
 }
 

@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { invoke } from "@tauri-apps/api/tauri";
 import { useState } from 'react';
 
-function SyscallPage() {
+function ExportPage() {
   return (
     <p></p>
   );
 }
 
-export default SyscallPage;
+export default ExportPage;
