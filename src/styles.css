@@ -14,15 +14,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
-  margin: 0;
-  padding-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -87,6 +78,27 @@ button {
 #greet-input {
   margin-right: 5px;
 }
+
+/* CSS module for the app layout */
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  height: calc(100vh - 40px);
+}
+
+.logPanel {
+  flex: 1; /* Log panel will grow to 1/4 of the available space */
+  overflow-y: auto;
+  max-width: 25%; /* Limit the maximum width to 25% */
+}
+
+.contentPanel {
+  flex: 3; /* Syscalls and Export panels will take up the remaining space */
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
