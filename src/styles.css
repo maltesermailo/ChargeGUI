@@ -75,14 +75,9 @@ button {
   outline: none;
 }
 
-#greet-input {
-  margin-right: 5px;
-}
-
 .container {
   display: flex;
   justify-content: center;
-  padding: 20px;
   gap: 20px;
   height: calc(100vh - 40px);
 }
@@ -118,6 +113,25 @@ button {
   height: 90%;
   justify-content: center;
   align-items: center;
+}
+
+.syscall-list {
+  flex: 1; /* Log panel will grow to 1/4 of the available space */
+  overflow-y: auto;
+  display: inline-block;
+  max-width: 25%; /* Limit the maximum width to 25% */
+  height: 100%;
+}
+
+.syscall-pane {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+}
+
+.description-pane {
+  flex: 3;
+  height: 90%;
 }
 
 

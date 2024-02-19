@@ -5,7 +5,7 @@ function LoadPage() {
    async function loadFile() {
         const selected = await open({multiple: false, filters: [{name: "JSON Log", extensions: ['json']}]});
 
-        invoke('loadFile', { file: selected });
+        invoke('load_file', { file: selected });
    }
 
   return (

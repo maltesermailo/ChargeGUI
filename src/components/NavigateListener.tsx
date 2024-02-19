@@ -6,7 +6,7 @@ function NavigateListener({children}) {
     const navigate  = useNavigate();
     useEffect(() => {
       const listener = listen<string>('navigate', (event) => {
-        //navigate(event.payload);
+        navigate(event.payload);
       });
   
       navigate("/");

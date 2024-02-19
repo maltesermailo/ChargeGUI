@@ -15,7 +15,7 @@ pub struct SyscallDefinition {
     pub description: String,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Syscall {
     pub syscall: SyscallDefinition,
     pub enabled: bool
@@ -42,19 +42,6 @@ struct ChargeState {
     pub syscalls: Mutex<Vec<Syscall>>
 }
 
-const SYSCALLS: [SyscallDefinition; 2] = [
-    SyscallDefinition {
-        id: 0,
-        name: "read",
-        description: "Read is used to read from file descriptors. This is an auxiliary syscall"
-    },
-    SyscallDefinition {
-        id: 1,
-        name: "read",
-        description: "Write is used to write to file descriptors. This is an auxiliary syscall"
-    }
-];
-
 fn loadSyscalls() -> Vec<SyscallDefinition> {
     let str = include_str!("syscalls.json");
 
@@ -73,10 +60,10 @@ fn ready(app: AppHandle) {
 }
 
 #[tauri::command]
-fn loadFile(app: AppHandle, state: tauri::State<ChargeState>, file: String) {
+fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) {
     println!("{}", file);
 
-    let mut file = match File::open("/etc/charge_scmp/config.json") {
+    let mut file = match File::open(file) {
         Ok(file) => file,
         Err(e) => {
             panic!("{}", format!("Can't load configuration file! Error: {}", e));
@@ -91,6 +78,13 @@ fn loadFile(app: AppHandle, state: tauri::State<ChargeState>, file: String) {
     data.clear();
 
     let syscalls = loadSyscalls();
+
+    for syscall in &syscalls {
+        data.push(Syscall {
+            syscall: syscall.clone(),
+            enabled: false
+        });
+    }
     
     for line in contents.lines() {
         let syscallEvent: SyscallEvent = serde_json::from_str(line).unwrap();
@@ -99,19 +93,26 @@ fn loadFile(app: AppHandle, state: tauri::State<ChargeState>, file: String) {
         if syscalls.get(sysno as usize).is_some() {
             let syscall = syscalls.get(sysno as usize).unwrap();
 
-            data[sysno as usize] = Syscall {
-                syscall: syscall.clone(),
-                enabled: true
-            }
+            data[sysno as usize].enabled = true;
         }
     }
+
+    app.emit_all("navigate", "/syscalls").unwrap();
+}
+
+#[tauri::command]
+fn get_syscall_list(state: tauri::State<ChargeState>) -> SyscallsList {
+    let mut data = state.syscalls.lock().unwrap();
+
+    println!("Syscalls called");
+
+    return SyscallsList {syscalls: data.to_vec()};
 }
 
 fn main() {
     tauri::Builder::default()
         .manage(ChargeState { syscalls: Mutex::new(vec![]) })
-        .invoke_handler(tauri::generate_handler![ready])
-        .invoke_handler(tauri::generate_handler![loadFile])
+        .invoke_handler(tauri::generate_handler![ready, load_file, get_syscall_list])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

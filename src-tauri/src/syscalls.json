@@ -1,0 +1,10 @@
+[{
+    "id": 0,
+    "name": "read",
+    "description": "Read is used to read from file descriptors. This is an auxiliary syscall"
+},
+{
+    "id": 1,
+    "name": "write",
+    "description": "Write is used to write to file descriptors. This is an auxiliary syscall"
+}]
