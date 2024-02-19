@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { invoke } from "@tauri-apps/api/tauri";
 import { useEffect, useState } from 'react';
 
@@ -21,6 +21,7 @@ interface SyscallsList {
 function SyscallPage() {
   const [syscalls, setSyscalls] = useState<SyscallsList>({syscalls: []});
   const [selectedSysno, setSelectedSysno] = useState<number>(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     invoke('get_syscall_list').then((json) => {
@@ -29,6 +30,12 @@ function SyscallPage() {
       setSelectedSysno(0);
     });
   }, []);
+
+  function handleFinish() {
+    invoke('send_syscall_list', {syscalls: syscalls}).then(() => {
+      navigate("/export");
+    });
+  }
 
   return (
     <div style={{ height: '100%' }}>
@@ -57,8 +64,8 @@ function SyscallPage() {
         </div>
       </div>
       <div style={{ float: 'right' }}>
-        <button>Back</button>
-        <button>Next</button>
+        <button onClick={() => navigate("/")}>Back</button>
+        <button onClick={handleFinish}>Next</button>
       </div>
     </div>
   );
