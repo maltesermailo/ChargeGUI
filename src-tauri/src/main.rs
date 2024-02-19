@@ -3,10 +3,31 @@
 
 use tauri::Manager;
 use tauri::AppHandle;
+use std::error::Error;
 use std::fs::File;
 use std::io::Read;
 use std::sync::Mutex;
 use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Clone)]
+struct CallError {
+    pub message: String
+}
+
+impl std::fmt::Display for CallError {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, {}, self.message);
+    }
+}
+
+impl serde::Serialize for CallError {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+      S: serde::ser::Serializer,
+    {
+      serializer.serialize_str(self.to_string().as_ref())
+    }
+  }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SyscallDefinition {
@@ -60,19 +81,19 @@ fn ready(app: AppHandle) {
 }
 
 #[tauri::command]
-fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) {
+fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) -> Result<(), std::io::Error> {
     println!("{}", file);
 
     let mut file = match File::open(file) {
         Ok(file) => file,
         Err(e) => {
-            panic!("{}", format!("Can't load configuration file! Error: {}", e));
+            return Err(CallError{ message: e.to_string() });
         }
     };
 
     //Parse config file
     let mut contents = String::new();
-    file.read_to_string(&mut contents).expect("Error while reading config");
+    file.read_to_string(&mut contents).expect("Error reading file");
 
     let mut data = state.syscalls.lock().unwrap();
     data.clear();
@@ -98,6 +119,7 @@ fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) {
     }
 
     app.emit_all("navigate", "/syscalls").unwrap();
+    Ok(())
 }
 
 #[tauri::command]
@@ -109,10 +131,53 @@ fn get_syscall_list(state: tauri::State<ChargeState>) -> SyscallsList {
     return SyscallsList {syscalls: data.to_vec()};
 }
 
+#[tauri::command]
+fn set_syscall_list(state: tauri::State<ChargeState>, syscallList: SyscallsList) -> Result<(), CallError> {
+    let mut result = state.syscalls.lock();
+
+    if let Err(e) = result {
+        return Err(CallError{ message: e.to_string() });
+    }
+
+    let mut data = result.unwrap();
+
+    data.clone_from_slice(&syscallList.syscalls);
+
+    Ok(())
+}
+
+#[tauri::command]
+fn export_file(state: tauri::State<ChargeState>, file: String) -> Result<(), CallError> {
+    let mut result = state.syscalls.lock();
+
+    if let Err(e) = result {
+        return Err(CallError{ message: e.to_string() });
+    }
+
+    let mut data = result.unwrap();
+
+    println!("{}", file);
+
+    let mut file = match File::open(file) {
+        Ok(file) => file,
+        Err(e) => {
+            return Err(CallError{ message: e.to_string() });
+        }
+    };
+
+    //Parse config file
+    let mut contents = String::new();
+    file.read_to_string(&mut contents).expect("Error reading file");
+
+
+
+    Ok(())
+}
+
 fn main() {
     tauri::Builder::default()
         .manage(ChargeState { syscalls: Mutex::new(vec![]) })
-        .invoke_handler(tauri::generate_handler![ready, load_file, get_syscall_list])
+        .invoke_handler(tauri::generate_handler![ready, load_file, get_syscall_list, set_syscall_list, export_file])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

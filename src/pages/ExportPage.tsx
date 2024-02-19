@@ -1,10 +1,17 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { open } from '@tauri-apps/api/dialog';
 import { invoke } from "@tauri-apps/api/tauri";
-import { useState } from 'react';
 
 function ExportPage() {
+  async function doExport() {
+    const selected = await open({multiple: false, filters: [{name: "JSON Log", extensions: ['json']}]});
+
+    invoke('export_file', { file: selected });
+  }
+
   return (
-    <p></p>
+    <div>
+      <button onClick={doExport}>Export</button>
+    </div>
   );
 }
 
