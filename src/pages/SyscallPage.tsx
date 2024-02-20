@@ -32,7 +32,7 @@ function SyscallPage() {
   }, []);
 
   function handleFinish() {
-    invoke('send_syscall_list', {syscalls: syscalls}).then(() => {
+    invoke('set_syscall_list', {syscallList: syscalls}).then(() => {
       navigate("/export");
     }).catch((error) => {
       alert("Couldn't send syscall list due to internal error: " + error);

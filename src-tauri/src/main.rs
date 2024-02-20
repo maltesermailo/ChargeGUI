@@ -118,6 +118,9 @@ fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) -> 
             data[sysno as usize].enabled = true;
         }
     }
+    //enable read and write by default
+    data[0].enabled = true;
+    data[1].enabled = true;
 
     app.emit_all("navigate", "/syscalls").unwrap();
     Ok(())
@@ -155,14 +158,21 @@ fn add_rules(state: &ChargeState, seccompRule: &mut SeccompRule) {
     }
 
     let data = result.unwrap();
+    let data_clone = data.clone();
     
-    let (enabledRules, disabledRules): (Vec<Syscall>, Vec<Syscall>) = data.iter().partition(|x| x.enabled);
+    let (enabledRules, disabledRules): (Vec<Syscall>, Vec<Syscall>) = data_clone.into_iter().partition(|x| x.enabled);
 
-    if(enabledRules.len() > 0)
-        seccompRule.getSpec().addRuleList("SCMP_ACT_ALLOW".to_string(), enabledRules);
+    if(enabledRules.len() > 0) {
+        let enabled_rules_names = enabledRules.into_iter().map(|rule| rule.syscall.name).collect();
 
-    if(disabledRules.len() > 0)
-        seccompRule.getSpec().addRuleList("SCMP_ACT_KILL".to_string(), disabledRules);
+        seccompRule.getSpec().addRuleList("SCMP_ACT_ALLOW".to_string(), enabled_rules_names);
+    }
+
+    if(disabledRules.len() > 0) {
+        let disabled_rules_names = disabledRules.into_iter().map(|rule| rule.syscall.name).collect();
+
+        seccompRule.getSpec().addRuleList("SCMP_ACT_KILL".to_string(), disabled_rules_names);
+    }
 }
 
 #[tauri::command]

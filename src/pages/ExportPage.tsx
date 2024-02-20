@@ -1,9 +1,9 @@
-import { open } from '@tauri-apps/api/dialog';
+import { save } from '@tauri-apps/api/dialog';
 import { invoke } from "@tauri-apps/api/tauri";
 
 function ExportPage() {
   async function doExport() {
-    const selected = await open({multiple: false, filters: [{name: "JSON Log", extensions: ['json']}]});
+    const selected = await save({filters: [{name: "JSON Log", extensions: ['json']}]});
 
     invoke('export_file', { file: selected });
   }
