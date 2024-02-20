@@ -7,4 +7,18 @@
     "id": 1,
     "name": "write",
     "description": "Write is used to write to file descriptors. This is an auxiliary syscall"
+}, {
+    "id": 2,
+    "name": "open",
+    "description": "Open is used to open file descriptors. On Linux this opens the capability to open all kinds of descriptors including process descriptors(/proc), devices(/dev) and system object space (/sys)"
+},
+{
+    "id": 3,
+    "name": "close",
+    "description": "Close is used to close an open file descriptor or socket."
+}, 
+{
+    "id": 4,
+    "name": "stat",
+    "description": "stat is used to read information about a file descriptor such as size, type and metadata."
 }]
