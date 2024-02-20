@@ -3,31 +3,29 @@
 
 use tauri::Manager;
 use tauri::AppHandle;
-use std::error::Error;
 use std::fs::File;
 use std::io::Read;
 use std::sync::Mutex;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone)]
-struct CallError {
-    pub message: String
+pub mod container;
+
+// create the error type that represents all errors possible in our program
+#[derive(Debug, thiserror::Error)]
+enum Error {
+  #[error(transparent)]
+  Io(#[from] std::io::Error),
 }
 
-impl std::fmt::Display for CallError {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, {}, self.message);
-    }
-}
-
-impl serde::Serialize for CallError {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-      S: serde::ser::Serializer,
-    {
-      serializer.serialize_str(self.to_string().as_ref())
-    }
+// we must manually implement serde::Serialize
+impl serde::Serialize for Error {
+  fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+  where
+    S: serde::ser::Serializer,
+  {
+    serializer.serialize_str(self.to_string().as_ref())
   }
+}
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SyscallDefinition {
@@ -81,13 +79,13 @@ fn ready(app: AppHandle) {
 }
 
 #[tauri::command]
-fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) -> Result<(), std::io::Error> {
+fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) -> Result<(), Error> {
     println!("{}", file);
 
     let mut file = match File::open(file) {
         Ok(file) => file,
         Err(e) => {
-            return Err(CallError{ message: e.to_string() });
+            return Err(Error::Io(e));
         }
     };
 
@@ -132,11 +130,11 @@ fn get_syscall_list(state: tauri::State<ChargeState>) -> SyscallsList {
 }
 
 #[tauri::command]
-fn set_syscall_list(state: tauri::State<ChargeState>, syscallList: SyscallsList) -> Result<(), CallError> {
+fn set_syscall_list(state: tauri::State<ChargeState>, syscallList: SyscallsList) -> Result<(), Error> {
     let mut result = state.syscalls.lock();
 
     if let Err(e) = result {
-        return Err(CallError{ message: e.to_string() });
+        panic!("Couldn't lock mutex: {}", e);
     }
 
     let mut data = result.unwrap();
@@ -147,11 +145,11 @@ fn set_syscall_list(state: tauri::State<ChargeState>, syscallList: SyscallsList)
 }
 
 #[tauri::command]
-fn export_file(state: tauri::State<ChargeState>, file: String) -> Result<(), CallError> {
+fn export_file(state: tauri::State<ChargeState>, file: String) -> Result<(), Error> {
     let mut result = state.syscalls.lock();
 
     if let Err(e) = result {
-        return Err(CallError{ message: e.to_string() });
+        panic!("Couldn't lock mutex: {}", e);
     }
 
     let mut data = result.unwrap();
@@ -161,7 +159,7 @@ fn export_file(state: tauri::State<ChargeState>, file: String) -> Result<(), Cal
     let mut file = match File::open(file) {
         Ok(file) => file,
         Err(e) => {
-            return Err(CallError{ message: e.to_string() });
+            return Err(Error::Io(e));
         }
     };
 
