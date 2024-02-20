@@ -33,9 +33,9 @@ pub struct SeccompSyscalls {
 }
 
 impl SeccompRule {
-    pub fn create(name: String, defaultAction: String, architectures: Vec<String>) -> SeccompRule {
-        let mut metadata = SeccompRuleMetadata {name: name, annotations: HashMap::new()};
-        let mut spec = SeccompRuleSpec {defaultAction: defaultAction, architectures: architectures, listenerPath: None, listenerMetadata: None, syscalls: vec![]};
+    pub fn create(name: &str, defaultAction: &str, architectures: Vec<String>) -> SeccompRule {
+        let mut metadata = SeccompRuleMetadata {name: name.to_string(), annotations: HashMap::new()};
+        let mut spec = SeccompRuleSpec {defaultAction: defaultAction.to_string(), architectures: architectures, listenerPath: None, listenerMetadata: None, syscalls: vec![]};
         let mut rule = SeccompRule {apiVersion: "security-profiles-operator.x-k8s.io/v1beta1".to_string(), kind: "SeccompProfile".to_string(), metadata: metadata, spec: spec};
 
         return rule;

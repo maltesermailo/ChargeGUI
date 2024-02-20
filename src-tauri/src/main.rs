@@ -5,8 +5,11 @@ use tauri::Manager;
 use tauri::AppHandle;
 use std::fs::File;
 use std::io::Read;
+use std::io::Write;
 use std::sync::Mutex;
 use serde::{Deserialize, Serialize};
+
+use crate::container::SeccompRule;
 
 pub mod container;
 
@@ -144,30 +147,35 @@ fn set_syscall_list(state: tauri::State<ChargeState>, syscallList: SyscallsList)
     Ok(())
 }
 
-#[tauri::command]
-fn export_file(state: tauri::State<ChargeState>, file: String) -> Result<(), Error> {
+fn add_rules(state: &ChargeState, seccompRule: &mut SeccompRule) {
     let mut result = state.syscalls.lock();
 
     if let Err(e) = result {
         panic!("Couldn't lock mutex: {}", e);
     }
 
-    let mut data = result.unwrap();
+    let data = result.unwrap();
+    
+    let (enabledRules, disabledRules): (Vec<Syscall>, Vec<Syscall>) = data.iter().partition(|x| x.enabled);
 
+    if(enabledRules.len() > 0)
+        seccompRule.getSpec().addRuleList("SCMP_ACT_ALLOW".to_string(), enabledRules);
+
+    if(disabledRules.len() > 0)
+        seccompRule.getSpec().addRuleList("SCMP_ACT_KILL".to_string(), disabledRules);
+}
+
+#[tauri::command]
+fn export_file(state: tauri::State<ChargeState>, file: String) -> Result<(), Error> {
     println!("{}", file);
 
-    let mut file = match File::open(file) {
-        Ok(file) => file,
-        Err(e) => {
-            return Err(Error::Io(e));
-        }
-    };
+    let mut seccompRule = SeccompRule::create("test", "SCMP_ACT_ALLOW", vec!["SCMP_ARCH_X86_64".to_string(), "SCMP_ARCH_AARCH64".to_string()]);
+    
+    add_rules(&state, &mut seccompRule);
 
-    //Parse config file
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).expect("Error reading file");
+    let out = serde_yaml::to_string(&seccompRule).unwrap();
 
-
+    std::fs::write(file, out);
 
     Ok(())
 }
