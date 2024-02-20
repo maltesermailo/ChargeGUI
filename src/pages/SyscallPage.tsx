@@ -45,24 +45,24 @@ function SyscallPage() {
         <div className='bordered-list syscall-list'>
           {syscalls.syscalls.map((item) => (
               selectedSysno === item.syscall.id ? (
-                <div>
-                  <label key={item.syscall.id}>
-                    <input type="checkbox" style={{ marginRight: '8px' }} defaultChecked={item.enabled} onChange={() => item.enabled = !item.enabled}/>
-                    <span className='selected' onClick={() => setSelectedSysno(item.syscall.id)}>{item.syscall.name}</span>
+                <div className='syscall-list-entry selected'>
+                  <input type="checkbox" style={{ marginRight: '8px' }} defaultChecked={item.enabled} onChange={() => item.enabled = !item.enabled}/>
+                  <label key={item.syscall.id} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', marginBottom: '10px' }}>
+                    <span onClick={(e) => {setSelectedSysno(item.syscall.id); e.stopPropagation();}}>{item.syscall.name}</span>
                   </label>
                 </div>
               ) : (
-                <div>
-                  <label key={item.syscall.id}>
-                    <input type="checkbox" style={{ marginRight: '8px' }} defaultChecked={item.enabled} onChange={() => item.enabled = !item.enabled}/>
-                    <span className='selected' onClick={() => setSelectedSysno(item.syscall.id)}>{item.syscall.name}</span>
+                <div className='syscall-list-entry'>
+                  <input type="checkbox" style={{ marginRight: '8px' }} defaultChecked={item.enabled} onChange={() => item.enabled = !item.enabled}/>
+                  <label key={item.syscall.id} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', marginBottom: '10px' }}>
+                    <span onClick={(e) => {setSelectedSysno(item.syscall.id); e.stopPropagation();}}>{item.syscall.name}</span>
                   </label>
                 </div>
               )
           ))}
         </div>
         <div className='description-pane'>
-            <p>TEST</p>
+            <p>{syscalls.syscalls[selectedSysno] === undefined ? "DESCRIPTION MISSING" : syscalls.syscalls[selectedSysno].syscall.description}</p>
         </div>
       </div>
       <div style={{ float: 'right' }}>
