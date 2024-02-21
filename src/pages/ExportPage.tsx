@@ -6,7 +6,7 @@ function ExportPage() {
   const navigate = useNavigate();
 
   async function doExport() {
-    const selected = await save({filters: [{name: "JSON Log", extensions: ['json']}]});
+    const selected = await save({filters: [{name: "YAML File", extensions: ['yaml']}]});
 
     invoke('export_file', { file: selected });
   }

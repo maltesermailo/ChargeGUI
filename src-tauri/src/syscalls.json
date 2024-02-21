@@ -299,6 +299,206 @@
 },
 {
     "id": 60,
-    "name": "_exit",
+    "name": "exit",
     "description": "exit terminates the calling process."
+},
+{
+    "id": 61,
+    "name": "wait4",
+    "description": "wait4 waits on another process."
+},
+{
+    "id": 62,
+    "name": "kill",
+    "description": "kill sends a signal to another process. Make sure the application really needs this."
+},
+{
+    "id": 63,
+    "name": "uname",
+    "description": "uname returns information about the system like OS, version, hostname."
+},
+{
+    "id": 64,
+    "name": "semget",
+    "description": "semget is used to get or create a System V semaphore."
+},
+{
+    "id": 65,
+    "name": "semop",
+    "description": "semop is used to perform operations on semaphores."
+},
+{
+    "id": 66,
+    "name": "semctl",
+    "description": "semctl is used to perform control operations on semaphores"
+},
+{
+    "id": 67,
+    "name": "shmop",
+    "description": "shmop is used to perform operations on shared memory segments."
+},
+{
+    "id": 68,
+    "name": "msgget",
+    "description": "msgget is used to get a System V message queue or create it."
+},
+{
+    "id": 69,
+    "name": "msgsnd",
+    "description": "msgsnd is used to send a message to the message queue."
+},
+{
+    "id": 70,
+    "name": "msgrcv",
+    "description": "msgrcv is used to the receive a message from the message queue."
+},
+{
+    "id": 71,
+    "name": "msgctl",
+    "description": "msgctl performs control operations on a message queue."
+},
+{
+    "id": 72,
+    "name": "fcntl",
+    "description": "fcntl is used to manipulate a file descriptor. For example, it can be used to set sockets as non-blocking."
+},
+{
+    "id": 73,
+    "name": "flock",
+    "description": "flock is used to apply or remove a lock on an open file."
+},
+{
+    "id": 74,
+    "name": "fsync",
+    "description": "fsync is used to synchronize a file to disk."
+},
+{
+    "id": 75,
+    "name": "fdatasync",
+    "description": "fdatasync is used to synchronize a file to disk without updating metadata unless necessary."
+},
+{
+    "id": 76,
+    "name": "truncate",
+    "description": "truncate is used to truncate a file to a specified length."
+},
+{
+    "id": 77,
+    "name": "ftruncate",
+    "description": "ftruncate is used to truncate a file to a specified length."
+},
+{
+    "id": 78,
+    "name": "getdents",
+    "description": "getdents is used to get the contents of a directory."
+},
+{
+    "id": 79,
+    "name": "getcwd",
+    "description": "getcwd is used to get the current working directory."
+},
+{
+    "id": 80,
+    "name": "chdir",
+    "description": "chdir is used to change the current working directory."
+},
+{
+    "id": 81,
+    "name": "fchdir",
+    "description": "fchdir is used to change the current working directory."
+},
+{
+    "id": 82,
+    "name": "rename",
+    "description": "rename is used to rename a file or directory."
+},
+{
+    "id": 83,
+    "name": "mkdir",
+    "description": "mkdir is used to create a directory."
+},
+{
+    "id": 84,
+    "name": "rmdir",
+    "description": "rmdir is used to delete an empty directory."
+},
+{
+    "id": 85,
+    "name": "creat",
+    "description": "creat is used to create a file and create it."
+},
+{
+    "id": 86,
+    "name": "link",
+    "description": "link is used to create a hard link for a file."
+},
+{
+    "id": 87,
+    "name": "unlink",
+    "description": "unlink is used to delete a hard link or remove a socket."
+},
+{
+    "id": 88,
+    "name": "symlink",
+    "description": "symlink is used to create a symbolic link at the path."
+},
+{
+    "id": 89,
+    "name": "readlink",
+    "description": "readlink is used to resolve a symbolic link at runtime."
+},
+{
+    "id": 90,
+    "name": "chmod",
+    "description": "chmod is used to change the permissions of a file. Make sure the application really needs to use this."
+},
+{
+    "id": 91,
+    "name": "fchmod",
+    "description": "fchmod is used to change the permissions of a file. Make sure the application really needs to use this."
+},
+{
+    "id": 92,
+    "name": "chown",
+    "description": "chown is used to change the ownership of a file. Make sure the application really needs to use this."
+},
+{
+    "id": 93,
+    "name": "fchown",
+    "description": "fchown is used to change the ownership of a file. Make sure the application really needs to use this."
+},
+{
+    "id": 94,
+    "name": "lchown",
+    "description": "lchown is used to change the ownership of a file. Make sure the application really needs to use this."
+},
+{
+    "id": 95,
+    "name": "umask",
+    "description": "umask is used to set the file mode creation mask. This changes the permissions a file is set to on default when the process creates a new one."
+},
+{
+    "id": 96,
+    "name": "gettimeofday",
+    "description": "gettimeofday is used to get the current time of day."
+},
+{
+    "id": 97,
+    "name": "getrlimit",
+    "description": "getrlimit is used to get the calling process's resource limits."
+},
+{
+    "id": 98,
+    "name": "getrusage",
+    "description": "getrusage is used to get the calling process's resource usages."
+},
+{
+    "id": 99,
+    "name": "sysinfo",
+    "description": "sysinfo is used to get certain statistics on memory and swap usage."
+},
+{
+    "id": 100,
+    "name": "times",
+    "description": "times is used to get the prcoess times."
 }]
