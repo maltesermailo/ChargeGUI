@@ -121,4 +121,84 @@
     "id": 24,
     "name": "sched_yield",
     "description": "sched_yield is used to give up the CPU for the calling thread. The next thread in queue gets executed."
-},]
+},
+{
+    "id": 25,
+    "name": "mremap",
+    "description": "mremap is used to expand, shrink or move an existing virtual memory mapping of the calling process."
+},
+{
+    "id": 26,
+    "name": "msync",
+    "description": "msync is used to sync the changes to a file that was mapped into memory with mmap back to the filesystem."
+},
+{
+    "id": 27,
+    "name": "mincore",
+    "description": "mincore is used to determine whether virtual memory is in physical RAM or on a page on disk."
+},
+{
+    "id": 28,
+    "name": "madvise",
+    "description": "madvise is used to optimize memory access by telling the kernel what it is used for to choose caching techniques."
+},
+{
+    "id": 29,
+    "name": "shmget",
+    "description": "shmget is used to get a SystemV shared memory segment or create a new one."
+},
+{
+    "id": 30,
+    "name": "shmop",
+    "description": "shmop is used to do operations on the shared memory segment. With this, a shared memory segment can be attached and detached to the process's virtual memory."
+},
+{
+    "id": 31,
+    "name": "shmctl",
+    "description": "shmctl is used to perform control operations on a shared memory segment. With this its size, permissions and more can be controlled."
+},
+{
+    "id": 32,
+    "name": "dup",
+    "description": "dup is used to create a duplicate of a file descriptor. This can be used to send file descriptors to child processes."
+},
+{
+    "id": 33,
+    "name": "dup2",
+    "description": "dup2 is used to create a duplicate of a file descriptor. This can be used to send file descriptors to child process."
+},
+{
+    "id": 34,
+    "name": "pause",
+    "description": "pause causes the calling process to sleep until a signal is delivered."
+},
+{
+    "id": 35,
+    "name": "nanosleep",
+    "description": "nanosleep is used to suspend the execution of the calling thread until the time has elapsed or a signal is delivered."
+},
+{
+    "id": 36,
+    "name": "getitimer",
+    "description": "getitimer is used to get access to a process-internal timer."
+},
+{
+    "id": 37,
+    "name": "alarm",
+    "description": "alarm sets a timer for x seconds to send a signal to the process."
+},
+{
+    "id": 38,
+    "name": "setitimer",
+    "description": "setitimer is used to arm or disarm a process-internal timer."
+},
+{
+    "id": 39,
+    "name": "getpid",
+    "description": "getpid returns the process ID of the calling process."
+},
+{
+    "id": 40,
+    "name": "sendfile",
+    "description": "sendfile copies data between one file descriptor and another."
+}]
