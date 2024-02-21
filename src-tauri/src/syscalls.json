@@ -201,4 +201,104 @@
     "id": 40,
     "name": "sendfile",
     "description": "sendfile copies data between one file descriptor and another."
+},
+{
+    "id": 41,
+    "name": "socket",
+    "description": "socket is used to open a socket to the internet or a unix socket. Make sure to check that the application really needs this syscall."
+},
+{
+    "id": 42,
+    "name": "connect",
+    "description": "connect connects the socket to the specified address."
+},
+{
+    "id": 43,
+    "name": "accept",
+    "description": "accept is used to accept an incoming connection on a socket and create a new socket for the data."
+},
+{
+    "id": 44,
+    "name": "sendto",
+    "description": "sendto is used to send a buffer over the socket to an address. This call is equivalent to write."
+},
+{
+    "id": 45,
+    "name": "recv",
+    "description": "recv is used to read data to a buffer from a socket from an address. This call is equivalent to read."
+},
+{
+    "id": 46,
+    "name": "sendmsg",
+    "description": "sendmsg is used to send data over a buffer to a socket. It also is able to send ancillary data including file descriptors over unix sockets. This is an auxiliary syscall."
+},
+{
+    "id": 47,
+    "name": "recvmsg",
+    "description": "recvmsg is used to receive data from a buffer over a socket. It also is able to send ancillary data including file descriptors over unix sockets."
+},
+{
+    "id": 48,
+    "name": "shutdown",
+    "description": "shutdown shuts down a connection of a socket without closing the socket."
+},
+{
+    "id": 49,
+    "name": "bind",
+    "description": "bind is used to bind a socket to an address. This is used to setup servers."
+},
+{
+    "id": 50,
+    "name": "listen",
+    "description": "listen is used to mark a socket as ready to accept connections."
+},
+{
+    "id": 51,
+    "name": "getsockname",
+    "description": "getsockname is used to get the current address of the socket."
+},
+{
+    "id": 52,
+    "name": "getpeername",
+    "description": "getpeername is used to get the address of the peer connected on the socket."
+},
+{
+    "id": 53,
+    "name": "socketpair",
+    "description": "socketpair is used to create 2 sockets that are connected to each other. This is frequently used for IPC between a child process and a parent."
+},
+{
+    "id": 54,
+    "name": "setsockopt",
+    "description": "setsockopt is used to set options on a socket."
+},
+{
+    "id": 55,
+    "name": "getsockopt",
+    "description": "getsockopt is used to get options of a socket."
+},
+{
+    "id": 56,
+    "name": "clone",
+    "description": "clone is used to create a new child process. Unlike fork, this is more fine-tuned."
+},
+{
+    "id": 57,
+    "name": "fork",
+    "description": "fork duplicates the current process."
+},
+{
+    "id": 58,
+    "name": "vfork",
+    "description": "vfork duplicates the current process without copying the heap."
+},
+{
+    "id": 59,
+    "name": "execve",
+    "description": "execve executes the program referred to by pathname."
+},
+{
+    "id": 60,
+    "name": "_exit",
+    "description": "exit terminates the calling process."
 }]
