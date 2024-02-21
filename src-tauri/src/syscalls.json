@@ -21,4 +21,104 @@
     "id": 4,
     "name": "stat",
     "description": "stat is used to read information about a file descriptor such as size, type and metadata."
-}]
+},
+{
+    "id": 5,
+    "name": "fstat",
+    "description": "fstat is used to read information about a file descriptor such as size, type and metadata."
+},
+{
+    "id": 6,
+    "name": "lstat",
+    "description": "lstat is used to read information about a file descriptor such as size, type and metadata."
+},
+{
+    "id": 7,
+    "name": "poll",
+    "description": "poll is used to determine whether a file descriptor is readable or writable."
+},
+{
+    "id": 8,
+    "name": "lseek",
+    "description": "lseek is used to seek the position of a file descriptor to an offset."
+},
+{
+    "id": 9,
+    "name": "mmap",
+    "description": "mmap is to map memory to the process's virtual address space. Some processes use this to efficiently read files."
+},
+{
+    "id": 10,
+    "name": "mprotect",
+    "description": "mprotect is used to change the protections on a memory page of a process. This is usually used for debug purposes."
+},
+{
+    "id": 11,
+    "name": "munmap",
+    "description": "munmap is used to unmap memory from the process's virtual address space."
+},
+{
+    "id": 12,
+    "name": "brk",
+    "description": "brk is used to set the program break for the calling process. The program break is the maximum size of memory the process can allocate."
+},
+{
+    "id": 13,
+    "name": "rt_sigaction",
+    "description": "rt_sigaction is used to set the signal handlers for the calling process."
+},
+{
+    "id": 14,
+    "name": "rt_sigprocmask",
+    "description": "rt_sigprocmask is used to change the signal mask for the calling process. The signal mask controls the behaviour when a signal is sent to the process."
+},
+{
+    "id": 15,
+    "name": "rt_sigreturn",
+    "description": "rt_sigreturn is called by the signal handler after a signal is dispatched and execution shall continue."
+},
+{
+    "id": 16,
+    "name": "ioctl",
+    "description": "ioctl is used to access special files like devices. Using ioctl you can call a device driver or a specific feature of the Linux kernel like seccomp"
+},
+{
+    "id": 17,
+    "name": "pread64",
+    "description": "pread64 is a special version of read that reads at an offset to a buffer."
+},
+{
+    "id": 18,
+    "name": "pwrite64",
+    "description": "pwrite64 is a special version of write theat writes to an offset from a buffer."
+},
+{
+    "id": 19,
+    "name": "readv",
+    "description": "readv is used to read from a file descriptor using IoVecs. These structures are used to designate large areas of memory."
+},
+{
+    "id": 20,
+    "name": "writev",
+    "description": "writev is used to write to a file descriptor using IoVecs. These structures are used to designate large areas of memory."
+},
+{
+    "id": 21,
+    "name": "access",
+    "description": "access is used to test whether the calling process has access to the file. This can also be used with devices and kernel objects."
+},
+{
+    "id": 22,
+    "name": "pipe",
+    "description": "pipe is used to create a unidirectional channel for communication between processes."
+},
+{
+    "id": 23,
+    "name": "select",
+    "description": "select is used to monitor multiple file descriptors whether they are to read or write to."
+},
+{
+    "id": 24,
+    "name": "sched_yield",
+    "description": "sched_yield is used to give up the CPU for the calling thread. The next thread in queue gets executed."
+},]
