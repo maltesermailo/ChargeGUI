@@ -601,4 +601,104 @@
     "id": 120,
     "name": "getresgid",
     "description": "getresgid returns the actual, effective and saved user id."
+},
+{
+    "id": 121,
+    "name": "getpgid",
+    "description": "getpgid returns the process group id of the calling process."
+},
+{
+    "id": 122,
+    "name": "setfsuid",
+    "description": "setfsuid sets the effective user id used for checking file system operations. This syscall is deprecated."
+},
+{
+    "id": 123,
+    "name": "setfsgid",
+    "description": "setfsuid sets the effective group id used for checking file system operations. This syscall is deprecated."
+},
+{
+    "id": 124,
+    "name": "getsid",
+    "description": "getsid returns the session id of the calling process."
+},
+{
+    "id": 125,
+    "name": "capget",
+    "description": "capget returns a list of the capabilities of the calling thread."
+},
+{
+    "id": 126,
+    "name": "capset",
+    "description": "capset is used to set capabilities for the calling thread. For example, CAP_SYS_ADMIN grants wide-administrator privileges."
+},
+{
+    "id": 127,
+    "name": "rt_sigpending",
+    "description": "rt_sigpending is a runtime function used to check whether a signal is pending on the calling process."
+},
+{
+    "id": 128,
+    "name": "rt_sigtimedwait",
+    "description": "rt_sigtimedwait is a runtime function used to wait for queued signals."
+},
+{
+    "id": 129,
+    "name": "rt_sigqueueinfo",
+    "description": "rt_sigqueueinfo is a runtime function used to send a signal plus data to a process or thread."
+},
+{
+    "id": 130,
+    "name": "rt_sigsuspend",
+    "description": "rt_sigsuspend is a runtime function used to change the signal mask and wait for a signal."
+},
+{
+    "id": 131,
+    "name": "sigaltstack",
+    "description": "sigaltstack is used to define an alternative stack for signal handlers in case a SIGSEGV happens."
+},
+{
+    "id": 132,
+    "name": "utime",
+    "description": "utime sets the last access and modification times for a file."
+},
+{
+    "id": 133,
+    "name": "mknod",
+    "description": "mknod is used to create an ordinary or special file."
+},
+{
+    "id": 134,
+    "name": "uselib",
+    "description": "uselib is used to load a shared library. This syscall is deprecated."
+},
+{
+    "id": 135,
+    "name": "personality",
+    "description": "personality is used to set the process execution domain. This enables older apps to work."
+},
+{
+    "id": 136,
+    "name": "ustat",
+    "description": "ustat is used to get information about a mounted filesystem. This syscall is deprecated."
+},
+{
+    "id": 137,
+    "name": "statfs",
+    "description": "statfs is used to get information about a mounted filesystem."
+},
+{
+    "id": 138,
+    "name": "fstatfs",
+    "description": "fstatfs is used to get information about a mounted filesystem."
+},
+{
+    "id": 139,
+    "name": "sysfs",
+    "description": "sysfs is used to get information about a filesystem type. This syscall is deprecated."
+},
+{
+    "id": 140,
+    "name": "getpriority",
+    "description": "getpriority is used to get the process priority."
 }]
