@@ -801,4 +801,105 @@
     "id": 160,
     "name": "setrlimit",
     "description": "Sets resource limits for the calling process, such as CPU time or maximum file size."
-}]
+},
+{
+    "id": 161,
+    "name": "chroot",
+    "description": "Changes the root directory of the calling process to the specified path."
+},
+{
+    "id": 162,
+    "name": "sync",
+    "description": "Forces completion of pending disk writes (synchronously)."
+},
+{
+    "id": 163,
+    "name": "acct",
+    "description": "Enables or disables process accounting."
+},
+{
+    "id": 164,
+    "name": "settimeofday",
+    "description": "Sets the system clock (time and date)."
+},
+{
+    "id": 165,
+    "name": "mount",
+    "description": "Mounts a filesystem, making it accessible at a specified directory."
+},
+{
+    "id": 166,
+    "name": "umount2",
+    "description": "Unmounts a mounted filesystem."
+},
+{
+    "id": 167,
+    "name": "swapon",
+    "description": "Enables a device or file for paging and swapping."
+},
+{
+    "id": 168,
+    "name": "swapoff",
+    "description": "Disables paging and swapping on the specified device or file."
+},
+{
+    "id": 169,
+    "name": "reboot",
+    "description": "Restarts the system."
+},
+{
+    "id": 170,
+    "name": "sethostname",
+    "description": "Sets the system hostname."
+},
+{
+    "id": 171,
+    "name": "setdomainname",
+    "description": "Sets the NIS domain name of the host."
+},
+{
+    "id": 172,
+    "name": "iopl",
+    "description": "Changes the I/O privilege level of the calling process."
+},
+{
+    "id": 173,
+    "name": "ioperm",
+    "description": "Sets the I/O port access permissions for the calling process."
+},
+{
+    "id": 174,
+    "name": "create_module",
+    "description": "Obsolete, was used to create a loadable kernel module."
+},
+{
+    "id": 175,
+    "name": "init_module",
+    "description": "Loads a loadable kernel module into the kernel."
+},
+{
+    "id": 176,
+    "name": "delete_module",
+    "description": "Removes a loadable kernel module from the kernel."
+},
+{
+    "id": 177,
+    "name": "get_kernel_syms",
+    "description": "Obsolete, was used to get symbols from the kernel."
+},
+{
+    "id": 178,
+    "name": "query_module",
+    "description": "Obsolete, was used to query information about kernel modules."
+},
+{
+    "id": 179,
+    "name": "quotactl",
+    "description": "Manipulates disk quotas."
+},
+{
+    "id": 180,
+    "name": "nfsservctl",
+    "description": "Obsolete, was used to control NFS server services."
+}  
+]
