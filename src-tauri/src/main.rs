@@ -118,9 +118,12 @@ fn load_file(app: AppHandle, state: tauri::State<ChargeState>, file: String) -> 
             data[sysno as usize].enabled = true;
         }
     }
-    //enable read and write by default
+    //enable read, write, sendmsg, getpid and execve by default
     data[0].enabled = true;
     data[1].enabled = true;
+    data[11].enabled = true;
+    data[20].enabled = true;
+    data[46].enabled = true;
 
     app.emit_all("navigate", "/syscalls").unwrap();
     Ok(())

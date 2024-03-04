@@ -501,4 +501,104 @@
     "id": 100,
     "name": "times",
     "description": "times is used to get the prcoess times."
+},
+{
+    "id": 101,
+    "name": "ptrace",
+    "description": "ptrace is used to control the execution of another process. Debugger's use this to control a processes behaviour. ptrace should never be used by a normal application."
+},
+{
+    "id": 102,
+    "name": "getuid",
+    "description": "getuid returns the actual user id of the calling process."
+},
+{
+    "id": 103,
+    "name": "syslog",
+    "description": "syslog is used to access the kernel printk() buffer; this buffer is used by the kernel and kernel modules to print messages."
+},
+{
+    "id": 104,
+    "name": "getgid",
+    "description": "getgid returns the real group id of the calling process."
+},
+{
+    "id": 105,
+    "name": "setuid",
+    "description": "setuid sets the effective user id of the calling process. With this it is able to drop root privileges to unprivileged."
+},
+{
+    "id": 106,
+    "name": "setgid",
+    "description": "setgid sets the effective group id of the calling process."
+},
+{
+    "id": 107,
+    "name": "geteuid",
+    "description": "getuid returns the effective user id of the calling process."
+},
+{
+    "id": 108,
+    "name": "getegid",
+    "description": "getgid returns the effective group id of the calling process."
+},
+{
+    "id": 109,
+    "name": "setpgid",
+    "description": "setpgid is used to set the process group id. Bash uses this to control background processes."
+},
+{
+    "id": 110,
+    "name": "getppid",
+    "description": "getppid returns the parent's process id."
+},
+{
+    "id": 111,
+    "name": "getpgid",
+    "description": "getpgid returns the process group id of the calling process."
+},
+{
+    "id": 112,
+    "name": "setsid",
+    "description": "setsid is used to create a new session and process group for the calling process."
+},
+{
+    "id": 113,
+    "name": "setreuid",
+    "description": "setreuid is used to set the effective and real user id of the calling process."
+},
+{
+    "id": 114,
+    "name": "setregid",
+    "description": "setregid is used to set the effective and real group id of the calling process."
+},
+{
+    "id": 115,
+    "name": "getgroups",
+    "description": "getgroups returns a list of all groups the process has assigned."
+},
+{
+    "id": 116,
+    "name": "setgroups",
+    "description": "setgroups is used to set the list of all groups the process has assigned."
+},
+{
+    "id": 117,
+    "name": "setresuid",
+    "description": "setresuid is used to to set the actual, effective and saved user id."
+},
+{
+    "id": 118,
+    "name": "geresuid",
+    "description": "getresuid returns the actual, effective and saved user id."
+},
+{
+    "id": 119,
+    "name": "setresgid",
+    "description": "setresgid is used to to set the actual, effective and saved group id."
+},
+{
+    "id": 120,
+    "name": "getresgid",
+    "description": "getresgid returns the actual, effective and saved user id."
 }]
