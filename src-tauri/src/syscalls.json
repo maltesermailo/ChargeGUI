@@ -701,4 +701,104 @@
     "id": 140,
     "name": "getpriority",
     "description": "getpriority is used to get the process priority."
+},
+{
+    "id": 141,
+    "name": "setpriority",
+    "description": "Sets the scheduling priority of a process, process group, or user."
+},
+{
+    "id": 142,
+    "name": "sched_setparam",
+    "description": "Sets the scheduling parameters for the specified process."
+},
+{
+    "id": 143,
+    "name": "sched_getparam",
+    "description": "Retrieves the scheduling parameters for the specified process."
+},
+{
+    "id": 144,
+    "name": "sched_setscheduler",
+    "description": "Sets the scheduling policy and parameters for the specified process."
+},
+{
+    "id": 145,
+    "name": "sched_getscheduler",
+    "description": "Retrieves the scheduling policy currently applied to the specified process."
+},
+{
+    "id": 146,
+    "name": "sched_get_priority_max",
+    "description": "Returns the maximum scheduling priority value for the specified policy."
+},
+{
+    "id": 147,
+    "name": "sched_get_priority_min",
+    "description": "Returns the minimum scheduling priority value for the specified policy."
+},
+{
+    "id": 148,
+    "name": "sched_rr_get_interval",
+    "description": "Retrieves the time quantum for the round-robin scheduling policy for the specified process."
+},
+{
+    "id": 149,
+    "name": "mlock",
+    "description": "Locks part of the calling process's virtual address space into RAM, preventing that memory from being paged to the swap area."
+},
+{
+    "id": 150,
+    "name": "munlock",
+    "description": "Unlocks previously locked memory, allowing it to be paged out to the swap area if necessary."
+},
+{
+    "id": 151,
+    "name": "mlockall",
+    "description": "Locks all pages mapped into the address space of the calling process."
+},
+{
+    "id": 152,
+    "name": "munlockall",
+    "description": "Unlocks all pages mapped into the address space of the calling process."
+},
+{
+    "id": 153,
+    "name": "vhangup",
+    "description": "Hangs up the current terminal session, ensuring all programs using the terminal are properly reset."
+},
+{
+    "id": 154,
+    "name": "modify_ldt",
+    "description": "Modifies the local descriptor table (LDT) for the calling process."
+},
+{
+    "id": 155,
+    "name": "pivot_root",
+    "description": "Changes the root filesystem of the current process to a new directory and moves the old root to a subdirectory of the new root."
+},
+{
+    "id": 156,
+    "name": "_sysctl",
+    "description": "Obsolete syscall used to query or set system-level parameters and information."
+},
+{
+    "id": 157,
+    "name": "prctl",
+    "description": "Allows calling processes to control specific characteristics of its behavior."
+},
+{
+    "id": 158,
+    "name": "arch_prctl",
+    "description": "Sets architecture-specific thread state."
+},
+{
+    "id": 159,
+    "name": "adjtimex",
+    "description": "Adjusts the kernel's timekeeping variables."
+},
+{
+    "id": 160,
+    "name": "setrlimit",
+    "description": "Sets resource limits for the calling process, such as CPU time or maximum file size."
 }]
