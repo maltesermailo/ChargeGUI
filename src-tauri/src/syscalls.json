@@ -1001,4 +1001,665 @@
     "id": 200,
     "name": "tkill",
     "description": "Sends a signal to a thread within the same process as the caller."
-}]
+},
+{
+    "id": 201,
+    "name": "time",
+    "description": "Gets the current time of the system."
+},
+{
+    "id": 202,
+    "name": "futex",
+    "description": "Performs fast userspace locking operations."
+},
+{
+    "id": 203,
+    "name": "sched_setaffinity",
+    "description": "Sets the CPU affinity for a task."
+},
+{
+    "id": 204,
+    "name": "sched_getaffinity",
+    "description": "Gets the CPU affinity for a task."
+},
+{
+    "id": 205,
+    "name": "set_thread_area",
+    "description": "Sets a thread's TLS (Thread Local Storage) area."
+},
+{
+    "id": 206,
+    "name": "io_setup",
+    "description": "Creates an asynchronous I/O context."
+},
+{
+    "id": 207,
+    "name": "io_destroy",
+    "description": "Destroys an asynchronous I/O context."
+},
+{
+    "id": 208,
+    "name": "io_getevents",
+    "description": "Reads asynchronous I/O events from the AIO context."
+},
+{
+    "id": 209,
+    "name": "io_submit",
+    "description": "Submits asynchronous I/O blocks for processing."
+},
+{
+    "id": 210,
+    "name": "io_cancel",
+    "description": "Cancels an asynchronous I/O operation."
+},
+{
+    "id": 211,
+    "name": "get_thread_area",
+    "description": "Gets a thread's TLS (Thread Local Storage) area."
+},
+{
+    "id": 212,
+    "name": "lookup_dcookie",
+    "description": "Translates a dcookie value to a pathname."
+},
+{
+    "id": 213,
+    "name": "epoll_create",
+    "description": "Creates an epoll instance for event polling."
+},
+{
+    "id": 214,
+    "name": "epoll_ctl_old",
+    "description": "Obsolete, replaced by epoll_ctl."
+},
+{
+    "id": 215,
+    "name": "epoll_wait_old",
+    "description": "Obsolete, replaced by epoll_wait."
+},
+{
+    "id": 216,
+    "name": "remap_file_pages",
+    "description": "Remaps pages of a file-backed memory area."
+},
+{
+    "id": 217,
+    "name": "getdents64",
+    "description": "Reads directory entries from an open file descriptor."
+},
+{
+    "id": 218,
+    "name": "set_tid_address",
+    "description": "Sets the clear_child_tid address for a thread."
+},
+{
+    "id": 219,
+    "name": "restart_syscall",
+    "description": "Restarts a syscall after a process was stopped. Used by the kernel internally."
+},
+{
+    "id": 220,
+    "name": "semtimedop",
+    "description": "Performs operations on selected semaphores with timeout."
+},
+{
+    "id": 221,
+    "name": "fadvise64",
+    "description": "Offers advice on the expected I/O patterns for file operations."
+},
+{
+    "id": 222,
+    "name": "timer_create",
+    "description": "Creates a new per-process timer."
+},
+{
+    "id": 223,
+    "name": "timer_settime",
+    "description": "Starts or stops a per-process timer."
+},
+{
+    "id": 224,
+    "name": "timer_gettime",
+    "description": "Gets the remaining time until the next expiration of a timer."
+},
+{
+    "id": 225,
+    "name": "timer_getoverrun",
+    "description": "Gets the overrun count of a timer."
+},
+{
+    "id": 226,
+    "name": "timer_delete",
+    "description": "Deletes a per-process timer."
+},
+{
+    "id": 227,
+    "name": "clock_settime",
+    "description": "Sets the time for the specified clock."
+},
+{
+    "id": 228,
+    "name": "clock_gettime",
+    "description": "Retrieves the time of the specified clock."
+},
+{
+    "id": 229,
+    "name": "clock_getres",
+    "description": "Gets the resolution of the specified clock."
+},
+{
+    "id": 230,
+    "name": "clock_nanosleep",
+    "description": "High-resolution sleep with a specified clock."
+},
+{
+    "id": 231,
+    "name": "exit_group",
+    "description": "Exits all threads in a process."
+},
+{
+    "id": 232,
+    "name": "epoll_wait",
+    "description": "Waits for events on an epoll instance."
+},
+{
+    "id": 233,
+    "name": "epoll_ctl",
+    "description": "Changes the event mask for a file descriptor on an epoll instance."
+},
+{
+    "id": 234,
+    "name": "tgkill",
+    "description": "Sends a signal to a specific thread within a specific process."
+},
+{
+    "id": 235,
+    "name": "utimes",
+    "description": "Changes access and modification times of a file with microsecond precision."
+},
+{
+    "id": 236,
+    "name": "vserver",
+    "description": "Obsolete, not implemented in standard Linux kernel versions."
+},
+{
+    "id": 237,
+    "name": "mbind",
+    "description": "Binds memory to a specified NUMA node."
+},
+{
+    "id": 238,
+    "name": "set_mempolicy",
+    "description": "Sets the NUMA memory policy for the calling thread."
+},
+{
+    "id": 239,
+    "name": "get_mempolicy",
+    "description": "Gets the NUMA memory policy for the calling thread."
+},
+{
+    "id": 240,
+    "name": "mq_open",
+    "description": "Opens a message queue."
+},
+{
+    "id": 241,
+    "name": "mq_unlink",
+    "description": "Removes a message queue."
+},
+{
+    "id": 242,
+    "name": "mq_timedsend",
+    "description": "Sends a message to a message queue with a timeout."
+},
+{
+    "id": 243,
+    "name": "mq_timedreceive",
+    "description": "Receives a message from a message queue with a timeout."
+},
+{
+    "id": 244,
+    "name": "mq_notify",
+    "description": "Registers for notification when a message is available in a message queue."
+},
+{
+    "id": 245,
+    "name": "mq_getsetattr",
+    "description": "Gets and sets attributes of a message queue."
+},
+{
+    "id": 246,
+    "name": "kexec_load",
+    "description": "Loads a new kernel for later execution."
+},
+{
+    "id": 247,
+    "name": "waitid",
+    "description": "Waits for state changes in a child of the calling process."
+},
+{
+    "id": 248,
+    "name": "add_key",
+    "description": "Adds a key to the kernel's key management facility."
+},
+{
+    "id": 249,
+    "name": "request_key",
+    "description": "Requests a key from the kernel's key management facility."
+},
+{
+    "id": 250,
+    "name": "keyctl",
+    "description": "Manipulates keys and keyrings within the kernel's key management facility."
+},
+{
+    "id": 251,
+    "name": "ioprio_set",
+    "description": "Sets the I/O priority of a process or thread."
+},
+{
+    "id": 252,
+    "name": "ioprio_get",
+    "description": "Gets the I/O priority of a process or thread."
+},
+{
+    "id": 253,
+    "name": "inotify_init",
+    "description": "Initializes an inotify instance for monitoring filesystem events."
+},
+{
+    "id": 254,
+    "name": "inotify_add_watch",
+    "description": "Adds a watch for filesystem events to an inotify instance."
+},
+{
+    "id": 255,
+    "name": "inotify_rm_watch",
+    "description": "Removes a watch for filesystem events from an inotify instance."
+},
+{
+    "id": 256,
+    "name": "migrate_pages",
+    "description": "Migrates memory pages of a process to another set of nodes."
+},
+{
+    "id": 257,
+    "name": "openat",
+    "description": "Opens a file relative to a directory file descriptor."
+},
+{
+    "id": 258,
+    "name": "mkdirat",
+    "description": "Creates a directory relative to a directory file descriptor."
+},
+{
+    "id": 259,
+    "name": "mknodat",
+    "description": "Creates a filesystem node relative to a directory file descriptor."
+},
+{
+    "id": 260,
+    "name": "fchownat",
+    "description": "Changes the owner and group of a file, relative to a directory file descriptor."
+},
+{
+    "id": 261,
+    "name": "futimesat",
+    "description": "Updates access and modification times of a file relative to a directory file descriptor."
+},
+{
+    "id": 262,
+    "name": "newfstatat",
+    "description": "Gets file status relative to a directory file descriptor."
+},
+{
+    "id": 263,
+    "name": "unlinkat",
+    "description": "Removes a file or directory relative to a directory file descriptor."
+},
+{
+    "id": 264,
+    "name": "renameat",
+    "description": "Renames a file relative to directory file descriptors."
+},
+{
+    "id": 265,
+    "name": "linkat",
+    "description": "Creates a link to a file relative to directory file descriptors."
+},
+{
+    "id": 266,
+    "name": "symlinkat",
+    "description": "Creates a symbolic link relative to a directory file descriptor."
+},
+{
+    "id": 267,
+    "name": "readlinkat",
+    "description": "Reads the value of a symbolic link relative to a directory file descriptor."
+},
+{
+    "id": 268,
+    "name": "fchmodat",
+    "description": "Changes the mode of a file relative to a directory file descriptor."
+},
+{
+    "id": 269,
+    "name": "faccessat",
+    "description": "Checks file access permissions relative to a directory file descriptor."
+},
+{
+    "id": 270,
+    "name": "pselect6",
+    "description": "Waits for some event on a file descriptor with a timeout and signal mask."
+},
+{
+    "id": 271,
+    "name": "ppoll",
+    "description": "Waits for some event on a file descriptor with a timeout and signal mask, similar to pselect6."
+},
+{
+    "id": 272,
+    "name": "unshare",
+    "description": "Disassociates parts of the process execution context."
+},
+{
+    "id": 273,
+    "name": "set_robust_list",
+    "description": "Sets the head of the robust futex list."
+},
+{
+    "id": 274,
+    "name": "get_robust_list",
+    "description": "Gets the head of the robust futex list."
+},
+{
+    "id": 275,
+    "name": "splice",
+    "description": "Moves data between two file descriptors without copying between kernel space and user space."
+},
+{
+    "id": 276,
+    "name": "tee",
+    "description": "Duplicates data from one file descriptor to another without writing to user space."
+},
+{
+    "id": 277,
+    "name": "sync_file_range",
+    "description": "Syncs a range of file data to disk."
+},
+{
+    "id": 278,
+    "name": "vmsplice",
+    "description": "Splices user pages into a pipe."
+},
+{
+    "id": 279,
+    "name": "move_pages",
+    "description": "Moves individual pages of a process to another set of nodes."
+},
+{
+    "id": 280,
+    "name": "utimensat",
+    "description": "Updates timestamps of a file relative to a directory file descriptor with nanosecond precision."
+},
+{
+    "id": 281,
+    "name": "epoll_pwait",
+    "description": "Waits for events on an epoll instance, with a signal mask."
+},
+{
+    "id": 282,
+    "name": "signalfd",
+    "description": "Creates a file descriptor for accepting signals."
+},
+{
+    "id": 283,
+    "name": "timerfd_create",
+    "description": "Creates a new timer object as a file descriptor."
+},
+{
+    "id": 284,
+    "name": "eventfd",
+    "description": "Creates an eventfd object for event notification."
+},
+{
+    "id": 285,
+    "name": "fallocate",
+    "description": "Allows file space allocation for an open file descriptor."
+},
+{
+    "id": 286,
+    "name": "timerfd_settime",
+    "description": "Starts or stops a timerfd to expire after a specified time."
+},
+{
+    "id": 287,
+    "name": "timerfd_gettime",
+    "description": "Retrieves the current setting of a timerfd."
+},
+{
+    "id": 288,
+    "name": "accept4",
+    "description": "Accepts a connection on a socket, with flags."
+},
+{
+    "id": 289,
+    "name": "signalfd4",
+    "description": "Creates a file descriptor for accepting signals, with flags."
+},
+{
+    "id": 290,
+    "name": "eventfd2",
+    "description": "Creates an eventfd object for event notification, with flags."
+},
+{
+    "id": 291,
+    "name": "epoll_create1",
+    "description": "Creates an epoll instance, with flags."
+},
+{
+    "id": 292,
+    "name": "dup3",
+    "description": "Duplicates a file descriptor, with flags."
+},
+{
+    "id": 293,
+    "name": "pipe2",
+    "description": "Creates a pipe, with flags."
+},
+{
+    "id": 294,
+    "name": "inotify_init1",
+    "description": "Initializes an inotify instance, with flags."
+},
+{
+    "id": 295,
+    "name": "preadv",
+    "description": "Reads data from a file at a given offset into multiple buffers."
+},
+{
+    "id": 296,
+    "name": "pwritev",
+    "description": "Writes data to a file at a given offset from multiple buffers."
+},
+{
+    "id": 297,
+    "name": "rt_tgsigqueueinfo",
+    "description": "Sends a signal to a specific thread in a specific process group."
+},
+{
+    "id": 298,
+    "name": "perf_event_open",
+    "description": "Creates a file descriptor for accessing the performance monitoring counters."
+},
+{
+    "id": 299,
+    "name": "recvmmsg",
+    "description": "Receives multiple messages from a socket using a single system call."
+},
+{
+    "id": 300,
+    "name": "fanotify_init",
+    "description": "Creates a fanotify instance for monitoring filesystem events."
+},
+{
+    "id": 301,
+    "name": "fanotify_mark",
+    "description": "Adds, removes, or modifies an fanotify mark on a filesystem object."
+},
+{
+    "id": 302,
+    "name": "prlimit64",
+    "description": "Sets or gets resource limits for a process."
+},
+{
+    "id": 303,
+    "name": "name_to_handle_at",
+    "description": "Obtains a handle for a file or directory."
+},
+{
+    "id": 304,
+    "name": "open_by_handle_at",
+    "description": "Opens a file using a handle obtained by name_to_handle_at."
+},
+{
+    "id": 305,
+    "name": "clock_adjtime",
+    "description": "Adjusts the time of a specified clock."
+},
+{
+    "id": 306,
+    "name": "syncfs",
+    "description": "Synchronizes the state of a filesystem to disk."
+},
+{
+    "id": 307,
+    "name": "sendmmsg",
+    "description": "Sends multiple messages on a socket using a single system call."
+},
+{
+    "id": 308,
+    "name": "setns",
+    "description": "Reassociates a process with a namespace."
+},
+{
+    "id": 309,
+    "name": "getcpu",
+    "description": "Determines the CPU and node on which the process is running."
+},
+{
+    "id": 310,
+    "name": "process_vm_readv",
+    "description": "Reads data from another process's memory."
+},
+{
+    "id": 311,
+    "name": "process_vm_writev",
+    "description": "Writes data to another process's memory."
+},
+{
+    "id": 312,
+    "name": "kcmp",
+    "description": "Compares two processes to determine if they share a kernel resource."
+},
+{
+    "id": 313,
+    "name": "finit_module",
+    "description": "Loads a kernel module from a file descriptor."
+},
+{
+    "id": 314,
+    "name": "sched_setattr",
+    "description": "Sets scheduling policy and attributes for a thread."
+},
+{
+    "id": 315,
+    "name": "sched_getattr",
+    "description": "Retrieves scheduling policy and attributes for a thread."
+},
+{
+    "id": 316,
+    "name": "renameat2",
+    "description": "Renames a file, with additional flags to control the behavior."
+},
+{
+    "id": 317,
+    "name": "seccomp",
+    "description": "Operates on the Secure Computing (seccomp) state of the calling process. Shouldn't be used at all by any process except Kubernetes, Docker or this program."
+},
+{
+    "id": 318,
+    "name": "getrandom",
+    "description": "Obtains random bytes from the kernel's random number generator."
+},
+{
+    "id": 319,
+    "name": "memfd_create",
+    "description": "Creates an anonymous file and returns a file descriptor that refers to it."
+},
+{
+    "id": 320,
+    "name": "kexec_file_load",
+    "description": "Loads a new kernel for later execution, using a file descriptor."
+},
+{
+    "id": 321,
+    "name": "bpf",
+    "description": "Performs operations on eBPF program and maps."
+},
+{
+    "id": 322,
+    "name": "execveat",
+    "description": "Executes a program relative to a directory file descriptor."
+},
+{
+    "id": 323,
+    "name": "userfaultfd",
+    "description": "Creates a file descriptor for handling page faults in user space."
+},
+{
+    "id": 324,
+    "name": "membarrier",
+    "description": "Issues a memory barrier on a set of threads."
+},
+{
+    "id": 325,
+    "name": "mlock2",
+    "description": "Locks memory in the calling process's virtual address space, with additional flags."
+},
+{
+    "id": 326,
+    "name": "copy_file_range",
+    "description": "Performs an in-kernel copy between two file descriptors without the additional cost of transferring data from the kernel to user space and then back into the kernel."
+},
+{
+    "id": 327,
+    "name": "preadv2",
+    "description": "Extends preadv allowing additional flags, such as RWF_HIPRI."
+},
+{
+    "id": 328,
+    "name": "pwritev2",
+    "description": "Extends pwritev allowing additional flags, such as RWF_HIPRI."
+},
+{
+    "id": 329,
+    "name": "pkey_mprotect",
+    "description": "Sets protection on a region of memory but with an additional protection key argument."
+},
+{
+    "id": 330,
+    "name": "pkey_alloc",
+    "description": "Allocates a protection key."
+},
+{
+    "id": 331,
+    "name": "pkey_free",
+    "description": "Frees a protection key."
+},
+{
+    "id": 332,
+    "name": "statx",
+    "description": "Retrieves information about a file based on a pathname, with additional flags to specify which information is retrieved."
+}
+]
