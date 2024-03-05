@@ -901,5 +901,104 @@
     "id": 180,
     "name": "nfsservctl",
     "description": "Obsolete, was used to control NFS server services."
-}  
-]
+},
+{
+    "id": 181,
+    "name": "getpmsg",
+    "description": "Obsolete, not implemented in standard Linux kernel versions."
+},
+{
+    "id": 182,
+    "name": "putpmsg",
+    "description": "Obsolete, not implemented in standard Linux kernel versions."
+},
+{
+    "id": 183,
+    "name": "afs_syscall",
+    "description": "Obsolete, placeholder for an AFS filesystem syscall."
+},
+{
+    "id": 184,
+    "name": "tuxcall",
+    "description": "Obsolete, placeholder for tuxedo subsystem call, not implemented."
+},
+{
+    "id": 185,
+    "name": "security",
+    "description": "Obsolete, placeholder for security model syscall, not implemented."
+},
+{
+    "id": 186,
+    "name": "gettid",
+    "description": "Returns the caller's thread ID."
+},
+{
+    "id": 187,
+    "name": "readahead",
+    "description": "Reads data from a file into the page cache before it is needed."
+},
+{
+    "id": 188,
+    "name": "setxattr",
+    "description": "Sets an extended attribute value for a file."
+},
+{
+    "id": 189,
+    "name": "lsetxattr",
+    "description": "Sets an extended attribute value for a link."
+},
+{
+    "id": 190,
+    "name": "fsetxattr",
+    "description": "Sets an extended attribute value for an open file descriptor."
+},
+{
+    "id": 191,
+    "name": "getxattr",
+    "description": "Retrieves an extended attribute value for a file."
+},
+{
+    "id": 192,
+    "name": "lgetxattr",
+    "description": "Retrieves an extended attribute value for a link."
+},
+{
+    "id": 193,
+    "name": "fgetxattr",
+    "description": "Retrieves an extended attribute value for an open file descriptor."
+},
+{
+    "id": 194,
+    "name": "listxattr",
+    "description": "Lists the extended attribute names for a file."
+},
+{
+    "id": 195,
+    "name": "llistxattr",
+    "description": "Lists the extended attribute names for a link."
+},
+{
+    "id": 196,
+    "name": "flistxattr",
+    "description": "Lists the extended attribute names for an open file descriptor."
+},
+{
+    "id": 197,
+    "name": "removexattr",
+    "description": "Removes an extended attribute from a file."
+},
+{
+    "id": 198,
+    "name": "lremovexattr",
+    "description": "Removes an extended attribute from a link."
+},
+{
+    "id": 199,
+    "name": "fremovexattr",
+    "description": "Removes an extended attribute from an open file descriptor."
+},
+{
+    "id": 200,
+    "name": "tkill",
+    "description": "Sends a signal to a thread within the same process as the caller."
+}]
